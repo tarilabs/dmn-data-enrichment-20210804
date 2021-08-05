@@ -18,6 +18,7 @@ package org.drools;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -115,8 +116,8 @@ public class SupportSLATest {
 
         assertThat(processInstance).isNotNull();
         assertThat(processInstance.getVariable("request")).hasFieldOrPropertyWithValue("priority", "High");
-        assertThat(pListener.nodesTriggered).contains("Pager");
-        assertThat(pListener.signals).contains("signal1");
+        assertThat(pListener.getNodesTriggered()).contains("Pager");
+        assertThat(pListener.getSignals()).contains("signal1");
     }
 
     @Test
@@ -128,8 +129,8 @@ public class SupportSLATest {
 
         assertThat(processInstance).isNotNull();
         assertThat(processInstance.getVariable("request")).hasFieldOrPropertyWithValue("priority", "Medium");
-        assertThat(pListener.nodesTriggered).doesNotContain("Pager");
-        assertThat(pListener.signals).doesNotContain("signal1");
+        assertThat(pListener.getNodesTriggered()).doesNotContain("Pager");
+        assertThat(pListener.getSignals()).doesNotContain("signal1");
     }
 
     @Test
@@ -141,8 +142,8 @@ public class SupportSLATest {
 
         assertThat(processInstance).isNotNull();
         assertThat(processInstance.getVariable("request")).hasFieldOrPropertyWithValue("priority", "High");
-        assertThat(pListener.nodesTriggered).contains("Pager");
-        assertThat(pListener.signals).contains("signal1");
+        assertThat(pListener.getNodesTriggered()).contains("Pager");
+        assertThat(pListener.getSignals()).contains("signal1");
     }
 
     @Test
@@ -154,8 +155,8 @@ public class SupportSLATest {
 
         assertThat(processInstance).isNotNull();
         assertThat(processInstance.getVariable("request")).hasFieldOrPropertyWithValue("priority", "Medium");
-        assertThat(pListener.nodesTriggered).doesNotContain("Pager");
-        assertThat(pListener.signals).doesNotContain("signal1");
+        assertThat(pListener.getNodesTriggered()).doesNotContain("Pager");
+        assertThat(pListener.getSignals()).doesNotContain("signal1");
     }
 
     private String asJSON(DMNContext context) {
@@ -174,8 +175,8 @@ public class SupportSLATest {
 
 class MyProcessListener extends DefaultProcessEventListener {
 
-    public List<String> nodesTriggered = new ArrayList<>();
-    public List<String> signals = new ArrayList<>();
+    private List<String> nodesTriggered = new ArrayList<>();
+    private List<String> signals = new ArrayList<>();
 
     @Override
     public void afterNodeTriggered(ProcessNodeTriggeredEvent event) {
@@ -185,6 +186,14 @@ class MyProcessListener extends DefaultProcessEventListener {
     @Override
     public void onSignal(SignalEvent event) {
         signals.add(event.getSignalName());
+    }
+
+    public List<String> getNodesTriggered() {
+        return Collections.unmodifiableList(nodesTriggered);
+    }
+
+    public List<String> getSignals() {
+        return Collections.unmodifiableList(signals);
     }
     
 }
