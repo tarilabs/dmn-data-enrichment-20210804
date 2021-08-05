@@ -19,6 +19,12 @@
     <dmn:itemComponent id="_229114D3-9BC7-4295-B1FB-323D86544EFA" name="premium" isCollection="false">
       <dmn:typeRef>boolean</dmn:typeRef>
     </dmn:itemComponent>
+    <dmn:itemComponent id="_DA3F201B-094D-4FDE-A85E-009B48EC4485" name="area" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_740BB539-2C9D-4BA0-B484-C4BA1890EACF" name="description" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
     <dmn:itemComponent id="_3BA262C6-C57A-4DC1-A989-7223ED6F4470" name="priority" isCollection="false">
       <dmn:typeRef>string</dmn:typeRef>
     </dmn:itemComponent>

@@ -19,6 +19,12 @@
     <dmn:itemComponent id="_229114D3-9BC7-4295-B1FB-323D86544EFA" name="premium" isCollection="false">
       <dmn:typeRef>boolean</dmn:typeRef>
     </dmn:itemComponent>
+    <dmn:itemComponent id="_39AAC274-4ECC-41B4-AA1D-F4ACA831284B" name="area" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_BB73F101-F4DD-443B-9D62-2FDC82C58630" name="description" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
     <dmn:itemComponent id="_3BA262C6-C57A-4DC1-A989-7223ED6F4470" name="priority" isCollection="false">
       <dmn:typeRef>string</dmn:typeRef>
     </dmn:itemComponent>
@@ -77,7 +83,7 @@
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
-      <dmndi:DMNShape xmlns:p0="ns1" id="dmnshape-drg-_567CB342-6E7D-41C7-B7F5-B232D042E834" dmnElementRef="p0:_567CB342-6E7D-41C7-B7F5-B232D042E834" isCollapsed="false">
+      <dmndi:DMNShape id="dmnshape-drg-_567CB342-6E7D-41C7-B7F5-B232D042E834" dmnElementRef="_567CB342-6E7D-41C7-B7F5-B232D042E834" isCollapsed="false">
         <dmndi:DMNStyle>
           <dmndi:FillColor red="2" green="243" blue="251"/>
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
@@ -86,7 +92,7 @@
         <dc:Bounds x="362" y="304" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
-      <dmndi:DMNShape xmlns:p1="ns1" id="dmnshape-drg-_14843EA5-0AE7-4357-AEA4-3416CAED2148" dmnElementRef="p1:_14843EA5-0AE7-4357-AEA4-3416CAED2148" isCollapsed="false">
+      <dmndi:DMNShape id="dmnshape-drg-_14843EA5-0AE7-4357-AEA4-3416CAED2148" dmnElementRef="_14843EA5-0AE7-4357-AEA4-3416CAED2148" isCollapsed="false">
         <dmndi:DMNStyle>
           <dmndi:FillColor red="255" green="255" blue="255"/>
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
@@ -95,7 +101,7 @@
         <dc:Bounds x="565" y="304" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
-      <dmndi:DMNEdge xmlns:p2="ns1" id="dmnedge-drg-_1223E719-E48D-4E6F-8C8B-90C437F6063C-AUTO-SOURCE-AUTO-TARGET" dmnElementRef="p2:_1223E719-E48D-4E6F-8C8B-90C437F6063C">
+      <dmndi:DMNEdge id="dmnedge-drg-_1223E719-E48D-4E6F-8C8B-90C437F6063C-AUTO-SOURCE-AUTO-TARGET" dmnElementRef="_1223E719-E48D-4E6F-8C8B-90C437F6063C">
         <di:waypoint x="412" y="304"/>
         <di:waypoint x="615" y="354"/>
       </dmndi:DMNEdge>

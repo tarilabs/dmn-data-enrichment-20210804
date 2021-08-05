@@ -75,7 +75,7 @@ public class SupportSLATest {
     public void testClassic() throws Exception {
         DMNModel model = dmnRuntime.getModel("ns0", "classic");
         DMNContext context = dmnRuntime.newContext();
-        context.set("Support Request", new SupportRequest("John Doe", "47", "info@redhat.com", "+1", "somewhere", false));
+        context.set("Support Request", new SupportRequest("John Doe", "47", "info@redhat.com", "+1", "somewhere", "tech", "app crashed", false));
 
         String in = asJSON(context);
         LOG.info("\nINPUT:\n{}", in);
@@ -93,7 +93,7 @@ public class SupportSLATest {
         ((DMNRuntimeImpl) dmnRuntime).setOption(new RuntimeTypeCheckOption(true));
         DMNModel model = dmnRuntime.getModel("ns1", "usingFP");
         DMNContext context = dmnRuntime.newContext();
-        context.set("Support Request", new SupportRequest("John Doe", "47", "info@redhat.com", "+1", "somewhere", false));
+        context.set("Support Request", new SupportRequest("John Doe", "47", "info@redhat.com", "+1", "somewhere", "tech", "app crashed", false));
 
         String in = asJSON(context);
         LOG.info("\nINPUT:\n{}", in);
@@ -112,7 +112,7 @@ public class SupportSLATest {
         KieSession ksession = kContainer.getKieBase().newKieSession();
         MyProcessListener pListener = new MyProcessListener();
         ksession.addEventListener(pListener);
-        WorkflowProcessInstance processInstance = (WorkflowProcessInstance) ksession.startProcess("classic", Map.of("request", new SupportRequest("John Doe", "47", "info@redhat.com", "+1", "somewhere", true)));
+        WorkflowProcessInstance processInstance = (WorkflowProcessInstance) ksession.startProcess("classic", Map.of("request", new SupportRequest("John Doe", "47", "info@redhat.com", "+1", "somewhere", "tech", "app crashed", true)));
 
         assertThat(processInstance).isNotNull();
         assertThat(processInstance.getVariable("request")).hasFieldOrPropertyWithValue("priority", "High");
@@ -125,7 +125,7 @@ public class SupportSLATest {
         KieSession ksession = kContainer.getKieBase().newKieSession();
         MyProcessListener pListener = new MyProcessListener();
         ksession.addEventListener(pListener);
-        WorkflowProcessInstance processInstance = (WorkflowProcessInstance) ksession.startProcess("classic", Map.of("request", new SupportRequest("John Doe", "47", "info@redhat.com", "+1", "somewhere", false)));
+        WorkflowProcessInstance processInstance = (WorkflowProcessInstance) ksession.startProcess("classic", Map.of("request", new SupportRequest("John Doe", "47", "info@redhat.com", "+1", "somewhere", "tech", "app crashed", false)));
 
         assertThat(processInstance).isNotNull();
         assertThat(processInstance.getVariable("request")).hasFieldOrPropertyWithValue("priority", "Medium");
@@ -138,7 +138,7 @@ public class SupportSLATest {
         KieSession ksession = kContainer.getKieBase().newKieSession();
         MyProcessListener pListener = new MyProcessListener();
         ksession.addEventListener(pListener);
-        WorkflowProcessInstance processInstance = (WorkflowProcessInstance) ksession.startProcess("usingFP", Map.of("request", new SupportRequest("John Doe", "47", "info@redhat.com", "+1", "somewhere", true)));
+        WorkflowProcessInstance processInstance = (WorkflowProcessInstance) ksession.startProcess("usingFP", Map.of("request", new SupportRequest("John Doe", "47", "info@redhat.com", "+1", "somewhere", "tech", "app crashed", true)));
 
         assertThat(processInstance).isNotNull();
         assertThat(processInstance.getVariable("request")).hasFieldOrPropertyWithValue("priority", "High");
@@ -151,7 +151,7 @@ public class SupportSLATest {
         KieSession ksession = kContainer.getKieBase().newKieSession();
         MyProcessListener pListener = new MyProcessListener();
         ksession.addEventListener(pListener);
-        WorkflowProcessInstance processInstance = (WorkflowProcessInstance) ksession.startProcess("usingFP", Map.of("request", new SupportRequest("John Doe", "47", "info@redhat.com", "+1", "somewhere", false)));
+        WorkflowProcessInstance processInstance = (WorkflowProcessInstance) ksession.startProcess("usingFP", Map.of("request", new SupportRequest("John Doe", "47", "info@redhat.com", "+1", "somewhere", "tech", "app crashed", false)));
 
         assertThat(processInstance).isNotNull();
         assertThat(processInstance.getVariable("request")).hasFieldOrPropertyWithValue("priority", "Medium");
