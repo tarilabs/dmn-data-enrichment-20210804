@@ -72,12 +72,7 @@
       <artifactId>jbpm-bpmn2</artifactId>
       <version>${drools-version}</version>
     </dependency>
-    <dependency>
-      <groupId>org.drools</groupId>
-      <artifactId>drools-scenario-simulation-backend</artifactId>
-      <version>${drools-version}</version>
-    </dependency>
-
+    
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
